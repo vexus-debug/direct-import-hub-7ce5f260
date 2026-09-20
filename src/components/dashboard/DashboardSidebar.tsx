@@ -83,21 +83,15 @@ export function DashboardSidebar() {
         )}
         activeClassName=""
       >
-        {active && (
-          <motion.div
-            layoutId="sidebar-active-bg"
-            className="absolute inset-0 rounded-lg bg-sidebar-primary/10"
-          />
-        )}
         <item.icon className={cn(
-          "h-4 w-4 shrink-0 relative z-10 transition-all duration-200",
+          "h-4 w-4 shrink-0 relative z-10",
           active ? "text-sidebar-primary" : "text-sidebar-foreground/50 group-hover:text-sidebar-foreground/80 "
         )} />
         {!collapsed && (
           <span className="relative z-10 truncate">{item.title}</span>
         )}
         {!collapsed && badge > 0 && (
-          <span className="relative z-10 ml-auto flex h-5 min-w-5 items-center justify-center rounded-full bg-destructive text-[10px] font-semibold text-destructive-foreground px-1 animate-pulse">
+          <span className="relative z-10 ml-auto flex h-5 min-w-5 items-center justify-center rounded-full bg-destructive text-[11px] font-semibold text-destructive-foreground px-1">
             {badge > 99 ? "99+" : badge}
           </span>
         )}
