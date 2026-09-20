@@ -224,9 +224,9 @@ export function DashboardSidebar() {
             className="shrink-0 group"
             title="My Profile"
           >
-            <Avatar className="h-8 w-8 ring-2 ring-white/15 transition-all duration-200 group-hover:ring-sidebar-primary/50">
+            <Avatar className="h-8 w-8 ring-1 ring-white/15">
               <AvatarImage src={profile?.avatar_url || ""} />
-              <AvatarFallback className="bg-gradient-to-br from-sidebar-primary/40 to-sidebar-primary/20 text-sidebar-primary text-xs font-bold">
+              <AvatarFallback className="bg-sidebar-primary/20 text-sidebar-primary text-xs font-semibold">
                 {initials}
               </AvatarFallback>
             </Avatar>
