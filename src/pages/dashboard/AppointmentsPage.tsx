@@ -15,7 +15,6 @@ import { useAppointmentsByDate, type AppointmentRow } from "@/hooks/useAppointme
 import { PageHeader } from "@/components/dashboard/PageHeader";
 import { TableSkeleton } from "@/components/dashboard/TableSkeleton";
 import { EmptyState } from "@/components/dashboard/EmptyState";
-import { motion } from "framer-motion";
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { useOrg } from "@/hooks/useOrg";
