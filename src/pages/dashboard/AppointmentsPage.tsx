@@ -193,7 +193,7 @@ export default function AppointmentsPage() {
         </Button>
       </PageHeader>
 
-      <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}>
+      <div>
         <Tabs defaultValue="schedule">
           <TabsList className="bg-muted/50" data-tour="appointments-tabs">
             <TabsTrigger value="schedule">Schedule View</TabsTrigger>
@@ -377,7 +377,7 @@ export default function AppointmentsPage() {
                       {displayAppointments.map((apt, i) => {
                         const initials = apt.patientName.split(" ").map((n: string) => n[0]).join("").slice(0, 2);
                         return (
-                          <motion.tr key={apt.id} className="border-b border-border last:border-0 hover:bg-accent/30 cursor-pointer transition-all group" onClick={() => setSelectedAppointment(apt)} initial={{ opacity: 0, x: -8 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: i * 0.02 }}>
+                          <tr key={apt.id} className="border-b border-border last:border-0 hover:bg-muted/40 cursor-pointer" onClick={() => setSelectedAppointment(apt)}>
                             <td className="py-3 px-4 font-mono text-xs">{label12(apt.time)}</td>
                             <td className="py-3 px-4">
                               <div className="flex items-center gap-2.5">
@@ -411,7 +411,7 @@ export default function AppointmentsPage() {
                                 </Button>
                               )}
                             </td>
-                          </motion.tr>
+                          </tr>
                         );
                       })}
                     </tbody>
@@ -421,7 +421,7 @@ export default function AppointmentsPage() {
             </Card>
           </TabsContent>
         </Tabs>
-      </motion.div>
+      </div>
 
       <BookAppointmentDialog open={bookOpen} onOpenChange={setBookOpen} />
       <WalkInDialog open={walkInOpen} onOpenChange={setWalkInOpen} />
