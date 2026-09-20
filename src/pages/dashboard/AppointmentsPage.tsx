@@ -183,7 +183,7 @@ export default function AppointmentsPage() {
           },
         }}
       >
-        <Button size="sm" variant="outline" onClick={() => setWalkInOpen(true)} className="border-border/50">
+        <Button size="sm" variant="outline" onClick={() => setWalkInOpen(true)} className="border-border">
           <UserPlus className="mr-2 h-4 w-4" />
           Walk-In
         </Button>
@@ -195,14 +195,14 @@ export default function AppointmentsPage() {
 
       <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}>
         <Tabs defaultValue="schedule">
-          <TabsList className="bg-muted/50 backdrop-blur-sm" data-tour="appointments-tabs">
+          <TabsList className="bg-muted/50" data-tour="appointments-tabs">
             <TabsTrigger value="schedule">Schedule View</TabsTrigger>
             <TabsTrigger value="list">List View</TabsTrigger>
           </TabsList>
 
           <TabsContent value="schedule" className="mt-4">
             <Card className="border bg-card shadow-sm overflow-hidden">
-              <CardHeader className="pb-3 border-b border-border/30">
+              <CardHeader className="pb-3 border-b border-border">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                   <div className="flex items-center gap-2 flex-wrap">
                     <Button variant="ghost" size="icon" className="h-7 w-7" onClick={nav.prev} data-tour="appointments-nav">
@@ -212,19 +212,19 @@ export default function AppointmentsPage() {
                     <Button variant="ghost" size="icon" className="h-7 w-7" onClick={nav.next}>
                       <ChevronRight className="h-4 w-4" />
                     </Button>
-                    <Button variant="outline" size="sm" className="text-xs border-border/50" onClick={() => setCurrentDate(new Date())}>Today</Button>
+                    <Button variant="outline" size="sm" className="text-xs border-border" onClick={() => setCurrentDate(new Date())}>Today</Button>
                     <Popover>
                       <PopoverTrigger asChild>
-                        <Button variant="outline" size="sm" className="text-xs border-border/50">
+                        <Button variant="outline" size="sm" className="text-xs border-border">
                           <CalendarIcon className="mr-1.5 h-3.5 w-3.5" />
                           Jump to date
                         </Button>
                       </PopoverTrigger>
-                      <PopoverContent className="w-auto p-0 backdrop-blur-xl" align="start">
+                      <PopoverContent className="w-auto p-0" align="start">
                         <Calendar mode="single" selected={currentDate} onSelect={(d) => d && setCurrentDate(d)} initialFocus className="p-3 pointer-events-auto" />
                       </PopoverContent>
                     </Popover>
-                    <div className="flex border border-border/50 rounded-lg overflow-hidden" data-tour="appointments-view-toggle">
+                    <div className="flex border border-border rounded-lg overflow-hidden" data-tour="appointments-view-toggle">
                       {(["day", "week", "month"] as const).map((mode) => (
                         <button key={mode} className={cn("px-3 py-1.5 text-xs font-medium transition-all capitalize", viewMode === mode ? "bg-secondary text-secondary-foreground" : "bg-muted/30 hover:bg-muted/60")} onClick={() => setViewMode(mode)}>
                           {mode}
@@ -236,7 +236,7 @@ export default function AppointmentsPage() {
                     {Object.entries(statusColors).map(([status]) => (
                       <div key={status} className="flex items-center gap-1.5">
                         <span className={`h-2 w-2 rounded-full ${statusDots[status]}`} />
-                        <span className="text-[10px] text-muted-foreground capitalize">{status.replace("-", " ")}</span>
+                        <span className="text-xs text-muted-foreground capitalize">{status.replace("-", " ")}</span>
                       </div>
                     ))}
                   </div>
@@ -277,7 +277,7 @@ export default function AppointmentsPage() {
                                           <p className="font-medium truncate">{apt.patientName}</p>
                                         </div>
                                         <p className="opacity-75 truncate">{apt.treatment}</p>
-                                        <p className="opacity-60 text-[10px] mt-0.5">{apt.dentist}</p>
+                                        <p className="opacity-60 text-xs mt-0.5">{apt.dentist}</p>
                                       </div>
                                     ) : null}
                                   </td>
@@ -296,8 +296,8 @@ export default function AppointmentsPage() {
                       {weekDays.map((day) => {
                         const isToday = isSameDay(day, new Date());
                         return (
-                          <button key={day.toISOString()} className={cn("p-4 rounded-xl border border-border/40 text-center hover:bg-accent/40 cursor-pointer transition-all duration-200 ", isToday && "bg-secondary/10 border-secondary/30 shadow-sm")} onClick={() => { setCurrentDate(day); setViewMode("day"); }}>
-                            <div className="text-[10px] uppercase text-muted-foreground font-medium">{format(day, "EEE")}</div>
+                          <button key={day.toISOString()} className={cn("p-4 rounded-md border border-border text-center hover:bg-accent/40 cursor-pointer transition-all duration-200 ", isToday && "bg-secondary/10 border-secondary/30 shadow-sm")} onClick={() => { setCurrentDate(day); setViewMode("day"); }}>
+                            <div className="text-xs uppercase text-muted-foreground font-medium">{format(day, "EEE")}</div>
                             <div className="text-lg font-semibold mt-0.5">{format(day, "d")}</div>
                           </button>
                         );
@@ -309,7 +309,7 @@ export default function AppointmentsPage() {
                   <div className="p-4">
                     <div className="grid grid-cols-7 gap-1">
                       {["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"].map((d) => (
-                        <div key={d} className="text-center text-[10px] font-medium text-muted-foreground uppercase py-2">{d}</div>
+                        <div key={d} className="text-center text-xs font-medium text-muted-foreground uppercase py-2">{d}</div>
                       ))}
                       {paddedDays.map((day, i) => {
                         if (!day) return <div key={`pad-${i}`} className="min-h-[80px]" />;
@@ -322,7 +322,7 @@ export default function AppointmentsPage() {
                           <button
                             key={dateStr}
                             className={cn(
-                              "min-h-[80px] p-1.5 rounded-lg border border-border/30 text-left hover:bg-accent/30 transition-all cursor-pointer",
+                              "min-h-[80px] p-1.5 rounded-lg border border-border text-left hover:bg-accent/30 transition-all cursor-pointer",
                               isToday && "bg-primary/5 border-primary/30",
                               isSelected && "ring-2 ring-primary/40"
                             )}
@@ -334,12 +334,12 @@ export default function AppointmentsPage() {
                             {dayAppts.length > 0 && (
                               <div className="space-y-0.5">
                                 {dayAppts.slice(0, 3).map((a: any) => (
-                                  <div key={a.id} className={cn("text-[9px] px-1 py-0.5 rounded truncate", statusColors[a.status]?.replace(/border-\S+/g, "") || "bg-muted")}>
+                                  <div key={a.id} className={cn("text-xs px-1 py-0.5 rounded truncate", statusColors[a.status]?.replace(/border-\S+/g, "") || "bg-muted")}>
                                     {a.patients?.first_name || "Appt"}
                                   </div>
                                 ))}
                                 {dayAppts.length > 3 && (
-                                  <div className="text-[9px] text-muted-foreground">+{dayAppts.length - 3} more</div>
+                                  <div className="text-xs text-muted-foreground">+{dayAppts.length - 3} more</div>
                                 )}
                               </div>
                             )}
@@ -377,12 +377,12 @@ export default function AppointmentsPage() {
                       {displayAppointments.map((apt, i) => {
                         const initials = apt.patientName.split(" ").map((n: string) => n[0]).join("").slice(0, 2);
                         return (
-                          <motion.tr key={apt.id} className="border-b border-border/30 last:border-0 hover:bg-accent/30 cursor-pointer transition-all group" onClick={() => setSelectedAppointment(apt)} initial={{ opacity: 0, x: -8 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: i * 0.02 }}>
+                          <motion.tr key={apt.id} className="border-b border-border last:border-0 hover:bg-accent/30 cursor-pointer transition-all group" onClick={() => setSelectedAppointment(apt)} initial={{ opacity: 0, x: -8 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: i * 0.02 }}>
                             <td className="py-3 px-4 font-mono text-xs">{label12(apt.time)}</td>
                             <td className="py-3 px-4">
                               <div className="flex items-center gap-2.5">
                                 <Avatar className="h-7 w-7">
-                                  <AvatarFallback className="bg-secondary/10 text-secondary text-[10px] font-semibold">{initials}</AvatarFallback>
+                                  <AvatarFallback className="bg-secondary/10 text-secondary text-xs font-semibold">{initials}</AvatarFallback>
                                 </Avatar>
                                 <span className="font-medium group-hover:text-secondary transition-colors">{apt.patientName}</span>
                               </div>
