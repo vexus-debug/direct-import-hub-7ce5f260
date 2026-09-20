@@ -164,7 +164,7 @@ export function DashboardSidebar() {
               <span className="text-[13px] font-bold text-white truncate leading-tight">
                 {currentOrg?.org_name || "Clinexus"}
               </span>
-              <span className="text-[10px] text-sidebar-foreground/50 font-medium capitalize tracking-wide">
+              <span className="text-[11px] text-sidebar-foreground/50 capitalize">
                 {config.label}
               </span>
             </motion.div>
@@ -242,7 +242,7 @@ export function DashboardSidebar() {
                   className="flex flex-col overflow-hidden flex-1 text-left hover:opacity-80 transition-opacity"
                 >
                   <span className="text-[13px] font-semibold truncate text-white leading-tight">{displayName}</span>
-                  <span className="text-[10px] text-sidebar-primary font-medium capitalize mt-0.5">
+                  <span className="text-[11px] text-sidebar-primary capitalize mt-0.5">
                     {getRoleLabel(orgRole)}
                   </span>
                 </button>
