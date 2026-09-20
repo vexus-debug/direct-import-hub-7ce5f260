@@ -180,10 +180,8 @@ export function DashboardSidebar() {
           return (
             <SidebarGroup key={group.label} className="mb-1">
               {!collapsed && (
-                <SidebarGroupLabel className="text-[9px] uppercase tracking-[0.18em] text-sidebar-foreground/35 font-semibold px-2 mb-1 flex items-center gap-2">
-                  <span className="h-px flex-1 bg-white/8" />
+                <SidebarGroupLabel className="text-[11px] text-sidebar-foreground/45 font-medium px-2 mb-1">
                   {group.label}
-                  <span className="h-px flex-1 bg-white/8" />
                 </SidebarGroupLabel>
               )}
               <SidebarGroupContent>
