@@ -83,21 +83,15 @@ export function DashboardSidebar() {
         )}
         activeClassName=""
       >
-        {active && (
-          <motion.div
-            layoutId="sidebar-active-bg"
-            className="absolute inset-0 rounded-lg bg-sidebar-primary/10"
-          />
-        )}
         <item.icon className={cn(
-          "h-4 w-4 shrink-0 relative z-10 transition-all duration-200",
+          "h-4 w-4 shrink-0 relative z-10",
           active ? "text-sidebar-primary" : "text-sidebar-foreground/50 group-hover:text-sidebar-foreground/80 "
         )} />
         {!collapsed && (
           <span className="relative z-10 truncate">{item.title}</span>
         )}
         {!collapsed && badge > 0 && (
-          <span className="relative z-10 ml-auto flex h-5 min-w-5 items-center justify-center rounded-full bg-destructive text-[10px] font-semibold text-destructive-foreground px-1 animate-pulse">
+          <span className="relative z-10 ml-auto flex h-5 min-w-5 items-center justify-center rounded-full bg-destructive text-[11px] font-semibold text-destructive-foreground px-1">
             {badge > 99 ? "99+" : badge}
           </span>
         )}
@@ -170,7 +164,7 @@ export function DashboardSidebar() {
               <span className="text-[13px] font-bold text-white truncate leading-tight">
                 {currentOrg?.org_name || "Clinexus"}
               </span>
-              <span className="text-[10px] text-sidebar-foreground/50 font-medium capitalize tracking-wide">
+              <span className="text-[11px] text-sidebar-foreground/50 capitalize">
                 {config.label}
               </span>
             </motion.div>
@@ -186,10 +180,8 @@ export function DashboardSidebar() {
           return (
             <SidebarGroup key={group.label} className="mb-1">
               {!collapsed && (
-                <SidebarGroupLabel className="text-[9px] uppercase tracking-[0.18em] text-sidebar-foreground/35 font-semibold px-2 mb-1 flex items-center gap-2">
-                  <span className="h-px flex-1 bg-white/8" />
+                <SidebarGroupLabel className="text-[11px] text-sidebar-foreground/45 font-medium px-2 mb-1">
                   {group.label}
-                  <span className="h-px flex-1 bg-white/8" />
                 </SidebarGroupLabel>
               )}
               <SidebarGroupContent>
@@ -208,10 +200,8 @@ export function DashboardSidebar() {
         {/* Shared nav items */}
         <SidebarGroup className="mt-1">
           {!collapsed && (
-            <SidebarGroupLabel className="text-[9px] uppercase tracking-[0.18em] text-sidebar-foreground/35 font-semibold px-2 mb-1 flex items-center gap-2">
-              <span className="h-px flex-1 bg-white/8" />
+            <SidebarGroupLabel className="text-[11px] text-sidebar-foreground/45 font-medium px-2 mb-1">
               General
-              <span className="h-px flex-1 bg-white/8" />
             </SidebarGroupLabel>
           )}
           <SidebarGroupContent>
@@ -234,9 +224,9 @@ export function DashboardSidebar() {
             className="shrink-0 group"
             title="My Profile"
           >
-            <Avatar className="h-8 w-8 ring-2 ring-white/15 transition-all duration-200 group-hover:ring-sidebar-primary/50">
+            <Avatar className="h-8 w-8 ring-1 ring-white/15">
               <AvatarImage src={profile?.avatar_url || ""} />
-              <AvatarFallback className="bg-gradient-to-br from-sidebar-primary/40 to-sidebar-primary/20 text-sidebar-primary text-xs font-bold">
+              <AvatarFallback className="bg-sidebar-primary/20 text-sidebar-primary text-xs font-semibold">
                 {initials}
               </AvatarFallback>
             </Avatar>
@@ -252,7 +242,7 @@ export function DashboardSidebar() {
                   className="flex flex-col overflow-hidden flex-1 text-left hover:opacity-80 transition-opacity"
                 >
                   <span className="text-[13px] font-semibold truncate text-white leading-tight">{displayName}</span>
-                  <span className="text-[10px] text-sidebar-primary font-medium capitalize mt-0.5">
+                  <span className="text-[11px] text-sidebar-primary capitalize mt-0.5">
                     {getRoleLabel(orgRole)}
                   </span>
                 </button>

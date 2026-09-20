@@ -199,18 +199,18 @@ export default function PatientsPage() {
                         >
                           <div className="flex items-center gap-3 mb-3">
                             <Avatar className="h-10 w-10 ring-1 ring-border group-hover:ring-primary/20 transition-all">
-                              <AvatarFallback className="bg-primary/[0.05] text-primary text-sm font-bold">{initials}</AvatarFallback>
+                              <AvatarFallback className="bg-primary/[0.05] text-primary text-sm font-semibold">{initials}</AvatarFallback>
                             </Avatar>
                             <div className="min-w-0">
                               <p className="font-semibold text-sm text-foreground truncate group-hover:text-primary transition-colors">
                                 {p.first_name} {p.last_name}
                               </p>
-                              <p className="text-[10px] text-muted-foreground font-mono">{p.id.slice(0, 8)}</p>
+                              <p className="text-xs text-muted-foreground font-mono">{p.id.slice(0, 8)}</p>
                             </div>
                           </div>
                           <div className="flex items-center justify-between">
                             <span className={cn(
-                              "inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[10px] font-semibold",
+                              "inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-xs font-semibold",
                               p.status === "active"
                                 ? "bg-emerald-500/[0.05] text-emerald-700"
                                 : "bg-muted text-muted-foreground"
@@ -218,7 +218,7 @@ export default function PatientsPage() {
                               <span className={cn("h-1.5 w-1.5 rounded-full", p.status === "active" ? "bg-emerald-500" : "bg-muted-foreground/50")} />
                               {p.status}
                             </span>
-                            <div className="flex items-center gap-1 text-[10px] text-muted-foreground">
+                            <div className="flex items-center gap-1 text-xs text-muted-foreground">
                               <Calendar className="h-3 w-3" />
                               {p.registered_date}
                             </div>
@@ -248,16 +248,16 @@ export default function PatientsPage() {
                 <table className="w-full text-sm">
                   <thead>
                     <tr className="bg-muted/30 border-b border-border/50">
-                      <th className="py-3 px-4 text-left font-semibold text-muted-foreground text-[11px] uppercase tracking-wider">Patient</th>
-                      <th className="py-3 px-4 text-left font-semibold text-muted-foreground text-[11px] uppercase tracking-wider hidden md:table-cell">ID</th>
+                      <th className="py-3 px-4 text-left font-semibold text-muted-foreground text-xs uppercase tracking-wide">Patient</th>
+                      <th className="py-3 px-4 text-left font-semibold text-muted-foreground text-xs uppercase tracking-wide hidden md:table-cell">ID</th>
                       {canViewContact && (
                         <>
-                          <th className="py-3 px-4 text-left font-semibold text-muted-foreground text-[11px] uppercase tracking-wider hidden md:table-cell">Phone</th>
-                          <th className="py-3 px-4 text-left font-semibold text-muted-foreground text-[11px] uppercase tracking-wider hidden lg:table-cell">Email</th>
+                          <th className="py-3 px-4 text-left font-semibold text-muted-foreground text-xs uppercase tracking-wide hidden md:table-cell">Phone</th>
+                          <th className="py-3 px-4 text-left font-semibold text-muted-foreground text-xs uppercase tracking-wide hidden lg:table-cell">Email</th>
                         </>
                       )}
-                      <th className="py-3 px-4 text-left font-semibold text-muted-foreground text-[11px] uppercase tracking-wider hidden lg:table-cell">Registered</th>
-                      <th className="py-3 px-4 text-left font-semibold text-muted-foreground text-[11px] uppercase tracking-wider">Status</th>
+                      <th className="py-3 px-4 text-left font-semibold text-muted-foreground text-xs uppercase tracking-wide hidden lg:table-cell">Registered</th>
+                      <th className="py-3 px-4 text-left font-semibold text-muted-foreground text-xs uppercase tracking-wide">Status</th>
                       <th className="py-3 px-4 w-10" />
                     </tr>
                   </thead>
@@ -276,14 +276,14 @@ export default function PatientsPage() {
                           <td className="py-3 px-4">
                             <div className="flex items-center gap-3">
                               <Avatar className="h-8 w-8 ring-1 ring-border/30">
-                                <AvatarFallback className="bg-primary/[0.05] text-primary text-[10px] font-bold">{initials}</AvatarFallback>
+                                <AvatarFallback className="bg-primary/[0.05] text-primary text-xs font-semibold">{initials}</AvatarFallback>
                               </Avatar>
                               <div>
                                 <p className="font-semibold text-foreground group-hover:text-primary transition-colors text-sm">
                                   {p.first_name} {p.last_name}
                                 </p>
                                 {canViewContact && (
-                                  <p className="text-[10px] text-muted-foreground md:hidden">{p.phone}</p>
+                                  <p className="text-xs text-muted-foreground md:hidden">{p.phone}</p>
                                 )}
                               </div>
                             </div>
